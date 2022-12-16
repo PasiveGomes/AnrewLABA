@@ -32,17 +32,17 @@ public class Office {
     }
 
     // Метод изменения кол-ва комнат
-    public void setRoomsAmount(int OfficeRoomsAmount) {
+    public void setOfficeRoomsAmount(int OfficeRoomsAmount) {
         this.OfficeRoomsAmount = OfficeRoomsAmount;
     }
 
     // Метод получения площади в квартиры
-    public int getFlatSquares() {
+    public int getOfficeSquares() {
         return OfficeSquares;
     }
 
     // Метод изменения площади комнаты
-    public void setFlatSquares(int OfficeSquares) {
+    public void setOfficeSquares(int OfficeSquares) {
         this.OfficeSquares = OfficeSquares;
     }
 }

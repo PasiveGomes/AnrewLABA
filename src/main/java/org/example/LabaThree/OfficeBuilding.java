@@ -4,16 +4,15 @@ import org.example.LabaTwo.DwellingFloor;
 import org.example.LabaTwo.Flat;
 
 public class OfficeBuilding {
-    private DwellingFloor[] floors;
+    private OfficeFloor[] floors;
 
     // Конструктор может принимать кол-во этажей и массив квартир по этажам
-    public Dwelling(int count, Flat[] flats) {
-        floors = new DwellingFloor[count];
+    public OfficeBuilding(int count, Office[] offices) {
+        floors = new OfficeFloor[count];
     }
 
     // Конструктор может принимать массив этажей дома
-    public Dwelling(DwellingFloor[] floors) {
-
+    public OfficeBuilding(OfficeFloor[] floors) {
         this.floors = floors;
     }
 
@@ -23,71 +22,73 @@ public class OfficeBuilding {
         return floors.length;
     }
 
-    public int getFlatsOnFloorsOnBuilds() {
+    public int getOfficesOnFloorsOnBuilds() {
         int sum = 0;
         for (int i = 0; i < floors.length; i++) {
-            sum += floors[i].getAmountFlatOnFloor();
+            sum += floors[i].getAmountOfficeOnFloor();
         }
         return sum;
     }
 
-    public int getFlatsSquaresOnFloorsOnBuilds() {
+    public int getOfficesSquaresOnFloorsOnBuilds() {
         int sum = 0;
         for (int i = 0; i < floors.length; i++) {
-            sum += floors[i].getSquareFlatOnFloor();
+            sum += floors[i].getSquareOfficeOnFloor();
         }
         return sum;
     }
 
-    public int getFlatsRoomsOnFloorsOnBuilds() {
+    public int getOfficesRoomsOnFloorsOnBuilds() {
         int sum = 0;
         for (int i = 0; i < floors.length; i++) {
-            sum += floors[i].getTotalRoom();
+            sum += floors[i].getTotalOfficeRoom();
         }
         return sum;
     }
 
-    public DwellingFloor[] getArrayFloors() {
+    public OfficeFloor[] getArrayFloors() {
         return floors;
     }
 
-    public DwellingFloor getFloors(int number) {
+    public OfficeFloor getFloors(int number) {
         return floors[number];
     }
 
     // метод изменения объекта квартиры по ее номеру в доме и ссылке на объект квартиры
-    public void changeFloors(int number, DwellingFloor floor) {
+    public void changeFloors(int number, OfficeFloor floor) {
         floors[number] = floor;
     }
 
     // метод добавления квартиры в дом по будущему номеру квартиры в доме (т.е. в парам. указ номер кот должны иметь
     // квартиры после вставки) и ссылке на объект квартиры (кол этажей в доме при этом не увел.)
-    public Flat getFlat(int number) {
+
+    public Office getFlat(int number) {
         int count = 0;
         for (int i = 0; i < floors.length; i++) {
-            count += floors[i].getArrayFlats().length;
+            count += floors[i].getArrayOffices().length;
             if(number <= count) {
-                return floors[i].getFlats(number - (count - floors[i].getArrayFlats().length));
+                return floors[i].getOffices(number - (count - floors[i].getArrayOffices().length));
             }
         }
         return null;
     }
-    public void changeFlat(int number, Flat flat) {
+
+    public void changeOffice(int number, Office flat) {
         int count = 0;
         for (int i = 0; i < floors.length; i++) {
-            count += floors[i].getArrayFlats().length;
+            count += floors[i].getArrayOffices().length;
             if(number <= count) {
-                floors[i].getArrayFlats()[number - (count - floors[i].getArrayFlats().length)] = flat;
+                floors[i].getArrayOffices()[number - (count - floors[i].getArrayOffices().length)] = flat;
             }
         }
     }
 
     // метод удаления квартиры по ее номеру в доме
-    public void deleteFlat(int number, int i) { // Apache Commons Lang removeElement() ArrayUtils.removeElement(array, 2)
+    public void deleteOffice(int number, int i) { // Apache Commons Lang removeElement() ArrayUtils.removeElement(array, 2)
         // System.out.println(Arrays.toString(MyArrayUtils.remove(numbers, 2)));
     }
 
-    public static int[] remove(int[] values, int index) {
+    public static int[] removeOffice(int[] values, int index) {
         // Создаем пустой массив размером на один меньше чем исходный
         // так как мы удаляем один элемент
         int[] result = new int[values.length - 1];
