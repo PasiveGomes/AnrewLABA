@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Created-By: GyurZa
+Created-By: andrewLABA
 Main-Class: MyFirstClass
 
